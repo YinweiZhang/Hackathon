@@ -8,6 +8,32 @@
 </head>
 <body>
 
+<% if current_user %>
+	<%= button_to "Logout", session_url, :method => :delete %>
+<% else %>
+	
+<form action="<%= session_url %>" method="post">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <label for="user_username">Username</label>
+  <input
+     id="user_username"
+     name="user[username]"
+     type="text">
+  <br>
+
+  <input type="submit" value="Log in">
+</form>
+
+<% end %>
+
+<% if flash[:errors] %>
+	<%= flash[:errors].first %>
+<% end %>
+
 <%= yield %>
 
 </body>

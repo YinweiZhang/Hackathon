@@ -1,3 +1,0 @@
-class Restaurant < ActiveRecord::Base
-  attr_accessible :downvotes, :name, :type, :upvotes
-end

@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131012084744) do
+ActiveRecord::Schema.define(:version => 20131012214644) do
 
   create_table "restaurants", :force => true do |t|
     t.string   "name"
-    t.string   "type"
     t.integer  "upvotes"
     t.integer  "downvotes"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.string   "category"
   end
 
   add_index "restaurants", ["user_id"], :name => "index_restaurants_on_user_id"
